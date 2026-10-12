@@ -75,7 +75,7 @@ user_pref("devtools.debugger.prompt-connection", false);
 user_pref("devtools.browserconsole.contentMessages", true);
 user_pref("extensions.checkCompatibility.nightly", false);
 user_pref("extensions.getAddons.cache.enabled", false);
-user_pref("extensions.installDistroAddons", false);
+user_pref("extensions.installDistroAddons", true);
 user_pref("startup.homepage_welcome_url.additional", "");
 user_pref("devtools.chrome.enabled", true);
 user_pref("devtools.debugger.show-content-scripts", true);

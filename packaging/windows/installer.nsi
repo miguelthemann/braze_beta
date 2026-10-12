@@ -23,6 +23,9 @@ RequestExecutionLevel admin
 Section "Braze Core" SecCore
   SetOutPath "$INSTDIR"
   
+  # Terminar processos anteriores do braze.exe que possam estar a bloquear ficheiros ou o perfil
+  ExecWait 'taskkill /F /IM braze.exe'
+
   # The runner will drop the prepared files into build-win\Braze
   File /r "..\..\build-win\Braze\*"
 

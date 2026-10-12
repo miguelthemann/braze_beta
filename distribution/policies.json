@@ -3,7 +3,7 @@
     "ExtensionSettings": {
       "braze-shields@miguelthemann.github.io": {
         "installation_mode": "force_installed",
-        "install_url": "file:///home/miguel/Projectos/braze/braze-shields.xpi"
+        "install_url": "https://raw.githubusercontent.com/miguelthemann/braze/main/braze-shields.xpi"
       }
     },
     "SearchEngines": {
@@ -21,12 +21,12 @@
       "PreventInstalls": false
     },
     "Homepage": {
-      "URL": "file:///home/miguel/Projectos/braze/home/index.html",
+      "URL": "about:blank",
       "Locked": false,
       "StartPage": "homepage"
     },
     "NewTabPage": false,
-    "OverrideFirstRunPage": "file:///home/miguel/Projectos/braze/home/index.html",
+    "OverrideFirstRunPage": "",
     "DisableFirefoxAccounts": true,
     "DisableFirefoxStudies": true,
     "DisablePocket": true,

@@ -91,22 +91,24 @@ jobs:
       - name: Injectar Braze Assets & Policies
         shell: bash
         run: |
-          # Copiar extensão, perfis e configurações
-          mkdir -p build-win/Braze/distribution
+          # 1. Configurar application.ini com identidade Braze para isolamento total de processos (IPC/Remoting)
+          sed -i 's/^Name=Firefox/Name=Braze/' build-win/Braze/application.ini
+          sed -i 's/^RemotingName=firefox/RemotingName=braze/' build-win/Braze/application.ini
+
+          # 2. Copiar distribuição, policies e extensão para pré-instalação
+          mkdir -p build-win/Braze/distribution/extensions
           cp distribution/policies.json build-win/Braze/distribution/policies.json
           cp braze-shields.xpi build-win/Braze/distribution/braze-shields.xpi
-          
-          mkdir -p build-win/Braze/defaults/pref
-          cp profile/user.js build-win/Braze/defaults/pref/autoconfig.js
-          
-          # Copiar resources web e pasta extensão 
+          cp braze-shields.xpi build-win/Braze/distribution/extensions/braze-shields@miguelthemann.github.io.xpi
+
+          # 3. Copiar resources web, pasta extensão, perfil e assets
           cp -r extension build-win/Braze/extension
           cp -r home build-win/Braze/home
           cp -r profile build-win/Braze/profile
           cp -r assets build-win/Braze/assets
           cp packaging/windows/braze-launcher.vbs build-win/Braze/braze-launcher.vbs
-          
-          # Renomear firefox.exe
+
+          # 4. Renomear firefox.exe
           mv build-win/Braze/firefox.exe build-win/Braze/braze.exe
 
       - name: Construir Instalador NSIS
