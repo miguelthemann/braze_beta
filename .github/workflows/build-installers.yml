@@ -81,7 +81,8 @@ jobs:
       - name: Baixar Firefox Oficial (Gecko Base)
         shell: bash
         run: |
-          url="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+          # Baixar Developer Edition para permitir extensões unsigned e personalizações de estilo
+          url="https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=win64&lang=en-US"
           curl -L -o "firefox-setup.exe" "$url"
           # Descomprimir Firefox Installer usando 7z
           "C:/Program Files/7-Zip/7z.exe" x -t7z firefox-setup.exe -y -o"firefox-unpacked"
@@ -105,11 +106,20 @@ jobs:
           cp -r extension build-win/Braze/extension
           cp -r home build-win/Braze/home
           cp -r profile build-win/Braze/profile
+          mkdir -p build-win/Braze/profile/extensions
+          cp braze-shields.xpi build-win/Braze/profile/extensions/braze-shields@miguelthemann.github.io.xpi
           cp -r assets build-win/Braze/assets
           cp packaging/windows/braze-launcher.vbs build-win/Braze/braze-launcher.vbs
 
-          # 4. Renomear firefox.exe
+          # 4. Ícones internos da janela e do motor Gecko
+          mkdir -p build-win/Braze/browser/chrome/icons/default
+          cp assets/icon.ico build-win/Braze/browser/chrome/icons/default/main-window.ico
+          cp assets/icon.ico build-win/Braze/browser/chrome/icons/default/default.ico
+
+          # 5. Renomear firefox.exe para braze.exe e aplicar o ícone e metadados no binário com rcedit
           mv build-win/Braze/firefox.exe build-win/Braze/braze.exe
+          curl -sL -o rcedit.exe https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe
+          ./rcedit.exe "build-win/Braze/braze.exe" --set-icon "assets/icon.ico" --set-version-string "ProductName" "Braze Browser" --set-version-string "FileDescription" "Braze Browser"
 
       - name: Construir Instalador NSIS
         run: |

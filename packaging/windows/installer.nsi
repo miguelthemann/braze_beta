@@ -9,6 +9,9 @@ OutFile "..\..\Braze-Setup-${VERSION}.exe"
 InstallDir "$PROGRAMFILES64\Braze"
 RequestExecutionLevel admin
 
+!define MUI_ICON "..\..\assets\icon.ico"
+!define MUI_UNICON "..\..\assets\icon.ico"
+
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
@@ -45,7 +48,7 @@ Section "Braze Core" SecCore
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Braze" "UninstallString" "$\"$INSTDIR\uninstall.exe$\""
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Braze" "QuietUninstallString" "$\"$INSTDIR\uninstall.exe$\" /S"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Braze" "Publisher" "Miguel The Mann"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Braze" "DisplayIcon" "$\"$INSTDIR\braze.exe$\",0"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Braze" "DisplayIcon" "$\"$INSTDIR\assets\icon.ico$\""
 SectionEnd
 
 Section "Uninstall"
