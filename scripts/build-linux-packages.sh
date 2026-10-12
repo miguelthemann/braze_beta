@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-VERSION="${1:-1.0.0}"
+VERSION="${1:-1.0.1}"
 BUILD_DIR="build/braze-linux"
 OUT_DIR="build"
 

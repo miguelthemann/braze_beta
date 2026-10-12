@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Versão a compilar (ex: 1.0.0)'
+        description: 'Versão a compilar (ex: 1.0.1)'
         required: false
-        default: '1.0.0'
+        default: '1.0.1'
 
 jobs:
   build-linux:

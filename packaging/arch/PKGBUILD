@@ -1,5 +1,5 @@
 pkgname=braze-bin
-pkgver=1.0.0
+pkgver=1.0.1
 pkgrel=1
 pkgdesc="O rival caótico do Microfost Ledge - Baseado no Mozilla Firefox"
 arch=('x86_64')
