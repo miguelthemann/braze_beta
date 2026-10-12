@@ -81,8 +81,8 @@ jobs:
       - name: Baixar Firefox Oficial (Gecko Base)
         shell: bash
         run: |
-          # Baixar Developer Edition para permitir extensões unsigned e personalizações de estilo
-          url="https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=win64&lang=en-US"
+          # Baixar Firefox Oficial (estável) agora que a extensão está assinada na AMO
+          url="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
           curl -L -o "firefox-setup.exe" "$url"
           # Descomprimir Firefox Installer usando 7z
           "C:/Program Files/7-Zip/7z.exe" x -t7z firefox-setup.exe -y -o"firefox-unpacked"

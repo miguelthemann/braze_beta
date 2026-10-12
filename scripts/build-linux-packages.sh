@@ -18,9 +18,10 @@ mv firefox/* "$BUILD_DIR/opt/braze/"
 rm -rf firefox firefox.tar.bz2
 
 # 2. Inject Braze configurations
-mkdir -p "$BUILD_DIR/opt/braze/distribution"
+mkdir -p "$BUILD_DIR/opt/braze/distribution/extensions"
 cp distribution/policies.json "$BUILD_DIR/opt/braze/distribution/"
 cp braze-shields.xpi "$BUILD_DIR/opt/braze/distribution/"
+cp braze-shields.xpi "$BUILD_DIR/opt/braze/distribution/extensions/braze-shields@miguelthemann.github.io.xpi"
 cp -r extension home profile "$BUILD_DIR/opt/braze/"
 
 # 3. Create standalone wrapper script

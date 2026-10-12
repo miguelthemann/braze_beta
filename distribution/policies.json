@@ -3,7 +3,7 @@
     "ExtensionSettings": {
       "braze-shields@miguelthemann.github.io": {
         "installation_mode": "force_installed",
-        "install_url": "https://raw.githubusercontent.com/miguelthemann/braze/main/braze-shields.xpi"
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/braze-shields/latest.xpi"
       }
     },
     "SearchEngines": {
